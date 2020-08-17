@@ -1,20 +1,20 @@
-function updateText(){
+updateText = () =>{
     let text = document.getElementById('text-input').value;
     document.getElementById('text-output').innerText = text;
   }
 
-function makeBold(elem){
+makeBold = (elem) =>{
   elem.classList.toggle('active');
   document.getElementById('text-output').classList.toggle('bold');
 }
 
 
-function makeItalic(elem){
+makeItalic = (elem) =>{
   elem.classList.toggle('active');
   document.getElementById('text-output').classList.toggle('italic');
 }
 
-function makeUnderline(elem){
+makeUnderline = (elem) => {
   elem.classList.toggle('active');
   if (document.getElementById('text-output').classList.contains('underline')){
     document.getElementById('text-output').classList.remove('underline');
@@ -23,12 +23,11 @@ function makeUnderline(elem){
   }
 }
 
-function alignText(elem, alignType){
+alignText = (elem, alignType) => {
+  document.getElementById('text-output').style.textAlign = alignType;
   let alignBtns = document.getElementsByClassName('align');
-  for(let i = 0; i < alignBtns.length; i++){
-      alignBtns[i].classList.remove('active');
+  for(let button of alignBtns){
+    button.classList.remove('active');
   }
   elem.classList.toggle('active');
-  document.getElementById('text-output').style.textAlign = alignType;
-  
 }
